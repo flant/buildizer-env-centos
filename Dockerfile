@@ -3,6 +3,8 @@ MAINTAINER flant <256@flant.com>
 ENTRYPOINT ["/bin/bash", "--login", "-c"]
 CMD ["/bin/bash"]
 
+RUN bash -lec "echo 'export LANG=en_US.utf8' | tee -a /etc/environment"
+
 RUN yum install -y which yum-utils vim
 RUN yum groupinstall -y 'Development Tools'
 
