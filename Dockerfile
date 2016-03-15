@@ -3,7 +3,10 @@ MAINTAINER flant <256@flant.com>
 ENTRYPOINT ["/bin/bash", "--login", "-c"]
 CMD ["/bin/bash"]
 
-RUN bash -lec "echo 'export LANG=en_US.utf8' | tee -a /etc/environment"
+RUN locale-gen en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
 
 RUN bash -lec "echo -e '[base-source]\nname=CentOS-\$releasever - Base Sources\nenabled=1\nbaseurl=http://vault.centos.org/centos/\$releasever/os/Source/\ngpgcheck=1\ngpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-\$releasever' >> /etc/yum.repos.d/CentOS-Extra-Thepackager.repo"
 RUN bash -lec "echo -e '[updates-source]\nname=CentOS-\$releasever - Updates Sources\nenabled=1\nbaseurl=http://vault.centos.org/centos/\$releasever/os/Source/\ngpgcheck=1\ngpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-\$releasever' >> /etc/yum.repos.d/CentOS-Extra-Thepackager.repo"
