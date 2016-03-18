@@ -7,7 +7,7 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
-RUN yum install -y which yum-utils vim
+RUN yum install -y which yum-utils vim tree rpmdevtools
 RUN yum groupinstall -y 'Development Tools'
 
 RUN bash -lec "\
