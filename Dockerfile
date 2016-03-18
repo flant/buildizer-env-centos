@@ -12,7 +12,7 @@ RUN bash -lec "echo -e '[updates-source]\nname=CentOS-\$releasever - Updates Sou
 RUN bash -lec "echo -e '[extras-source]\nname=CentOS-\$releasever - Extras Sources\nenabled=1\nbaseurl=http://vault.centos.org/centos/\$releasever/os/Source/\ngpgcheck=1\ngpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-\$releasever' >> /etc/yum.repos.d/CentOS-Extra-Thepackager.repo"
 RUN bash -lec "echo -e '[centosplus-source]\nname=CentOS-\$releasever - Centosplus Sources\nenabled=1\nbaseurl=http://vault.centos.org/centos/\$releasever/os/Source/\ngpgcheck=1\ngpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-\$releasever' >> /etc/yum.repos.d/CentOS-Extra-Thepackager.repo"
 
-RUN yum install -y which yum-utils vim
+RUN yum install -y which yum-utils vim tree rpmdevtools
 RUN yum groupinstall -y 'Development Tools'
 
 RUN bash -lec "\
