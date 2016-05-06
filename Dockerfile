@@ -1,7 +1,5 @@
 FROM centos:centos7
 MAINTAINER flant <256@flant.com>
-ENTRYPOINT ["/bin/bash", "--login", "-c"]
-CMD ["/bin/bash"]
 
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
